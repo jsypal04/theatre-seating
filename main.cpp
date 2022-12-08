@@ -5,7 +5,7 @@ int main() {
  
 }    
 
-int getNumSeatsinRow(int column,int row, char seatChart[][])
+int getNumSeatsinRow(int row, char seatChart[][])
 {
     
     int numAvailSeats[];
