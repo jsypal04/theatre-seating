@@ -23,7 +23,16 @@ void printSeatChart(char seatChart[][30])
 
 }
 
+void getPrices(double prices[15])
+{
+    for(int row = 0; row < 15; row++)
+    {
+        cout <<"Enter the price for row " <<(row + 1) <<": ";
+        cin >> prices[row];
+    }
+}
+
 int main() {
-    
+
     return 0;
 }
