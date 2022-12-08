@@ -15,7 +15,7 @@ int getNumSeatsinRow(int row, char seatChart[][])
     {
         for(int j = 0; j < 15; j++)
         {
-            if(seatchart[i][j] = "#')
+            if(seatchart[i][j] = '#')
               {
                     count++;  
                     cout << seatchart[i][j] << " is available ";
