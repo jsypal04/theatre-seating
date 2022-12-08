@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][10], double prices[]) {
+int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][30], double prices[]) {
 	double runningTotal;
 	double numTickets = 0;
 
@@ -21,13 +21,15 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][10], doubl
 				// printSeatChart(seatChart);
 				int row;
 				int seat;
-				cout << "Enter a row and seat number separated by a space: ";
-				cin >> row >> seat;
+				do {
+					cout << "Enter a row and seat number separated by a space: ";
+					cin >> row >> seat;
+				} while (row > 15 || seat > 30);
 
 				seatsSold++;
 				revenue += prices[row - 1];
 				runningTotal += prices[row - 1];
-				seatChart[row - 1][seat - 1] = '#';
+				seatChart[row - 1][seat - 1] = '*';
 				numTickets++;
 				break;
 			}
@@ -41,7 +43,21 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][10], doubl
 }
 
 int main() {
+
+	int seatsSold = 0;
+	double revenue = 0.0;
+
+	double prices[15] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+
+	char seatChart[15][30];
+
+	for (int i = 0; i < 15; i++) {
+		for (int j = 0; j < 30; j++) {
+			seatChart[i][j] = '#';
+		}
+	}
 	
+	purchaseTickets(seatsSold, revenue, seatChart, prices);
 	
 	return 0;
 }
