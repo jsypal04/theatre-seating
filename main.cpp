@@ -38,7 +38,7 @@ int main() {
     {
         for(int seat = 0; seat < 30; seat++)
         {
-            seatChart[row][seat] = '*';
+            seatChart[row][seat] = '#';
         }
     }
     return 0;
