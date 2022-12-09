@@ -54,7 +54,7 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][30], doubl
 		cout << "1. Buy a ticket\n2. See Running Total\n3. Exit\n";
 		cin >> choice;
 
-		if (choice == -1) {
+		if (choice == 3) {
             printSeatChart(seatChart);
             cout <<setprecision(2) <<fixed << "Total price: $" << runningTotal <<endl;
 
@@ -140,7 +140,7 @@ int main() {
     getPrices(prices);
     printSeatChart(seatChart);
 
-    // the main manu loop
+    // the main menu loop
     int choice;
     do {
         // collects the user's menu choice
