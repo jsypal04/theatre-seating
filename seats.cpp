@@ -68,6 +68,8 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][30], doubl
 		cin >> choice;
 
 		if (choice == -1) {
+            printSeatChart(seatChart);
+            cout <<setprecision(2) <<fixed << "Total price: $" << runningTotal <<endl;
 			return 0;
 		}
 
@@ -76,15 +78,22 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][30], doubl
 				printSeatChart(seatChart);
 				int row;
 				int seat;
-				do {
-					cout << "Enter a row and seat number separated by a space: ";
-					cin >> row >> seat;
-                    if (seatChart[row - 1][seat - 1] == '*') {
-                        cout << "That seat is taken. Choose another one." << endl;
-                        continue;
+                do
+                {
+                    cout << "Enter a row and seat number separated by a space: ";
+				    cin >> row >> seat;
+                    while (row > 15 || row < 1 || seat > 30 || seat < 1)
+				    {
+                        cout << "That seat does not exist. Choose another one." <<endl;
+                        cout << "Enter a row and seat number separated by a space: ";
+				        cin >> row >> seat;
+				    }
+                    if(seatChart[row - 1][seat - 1] == '*')
+                    {
+                        cout << "Seat is occupied. Choose another one. " <<endl;
                     }
-				} while (row > 15 || seat > 30);
-
+                } while (seatChart[row - 1][seat - 1] == '*');
+                
 				seatsSold++;
 				revenue += prices[row - 1];
 				runningTotal += prices[row - 1];
@@ -98,6 +107,8 @@ int purchaseTickets(int &seatsSold, double &revenue, char seatChart[][30], doubl
 			}
  		}
 	}
+    printSeatChart(seatChart);
+    cout <<setprecision(2) <<fixed << "Total price: $" << runningTotal <<endl;
 	return 0;
 }
 
